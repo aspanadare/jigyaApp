@@ -1,9 +1,16 @@
-// ReusableSwitch.js
+// ToggleSwitch.tsx
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Switch } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ToggleSwitch = ({ label, storageKey, initialValue }) => {
+// Define the props interface
+interface ToggleSwitchProps {
+  label: string;
+  storageKey: string;
+  initialValue?: boolean; // Optional initial value
+}
+
+const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ label, storageKey, initialValue = false }) => {
   const [isEnabled, setIsEnabled] = useState(initialValue);
 
   // Load state from AsyncStorage on mount
@@ -27,12 +34,14 @@ const ToggleSwitch = ({ label, storageKey, initialValue }) => {
 
   return (
     <View style={styles.switchContainer}>
-      <Text style={styles.label}>{label} is {isEnabled ? 'ON' : 'OFF'}</Text>
+       
       <Switch
-        trackColor={{ false: '#767577', true: '#81b0ff' }}
-        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-        ios_backgroundColor="#3e3e3e"
+        trackColor={{ false: '#767577', true: '##000' }}
+        
+        thumbColor={isEnabled ? '##2DCB42' : '##13A226'}
+        ios_backgroundColor="#767577"
         onValueChange={toggleSwitch}
+        style={{ transform: [{ scaleX: .7}, { scaleY: .7}] }} // 
         value={isEnabled}
       />
     </View>
@@ -43,7 +52,7 @@ const styles = StyleSheet.create({
   switchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
+     
   },
   label: {
     fontSize: 20,

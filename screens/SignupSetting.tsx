@@ -11,10 +11,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Googleround from "../assets/google-round.svg"; // Adjust the path
 import LinkedinRound from "../assets/linkedin-round.svg"; // Adjust the path
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import ReusableSwitch from '../components/ToggleSwitch'; // Adjust the path 
 import Bell from "../assets/notification.svg"; // Adjust the path
 import Filter from "../assets/interest filter.svg"; // Adjust the path
 import HDImage from "../assets/hd images.svg"; // Adjust the path
 import Play from "../assets/auto_play.svg"; // Adjust the path
+import ToggleSwitch from "../components/ToggleSwitch";
+
 
 const { width, height } = Dimensions.get("window");
 
@@ -53,7 +56,7 @@ const SignupSetting = () => {
               <Text className="text-xl">Notifications</Text>
             </View>
             <View className="toggle">
-              <Text> Toggle Button </Text>
+             <ToggleSwitch label="Switch 1" storageKey="switch1" initialValue={false} />
             </View>
           </View>
           <View className="w-['90%'] h-[1px] bg-gray-200 justify-center items-center ml-auto mr-auto"></View>
@@ -63,19 +66,17 @@ const SignupSetting = () => {
               <Filter width={32} height={32} className="align-middle" />
               <Text className="text-xl">Your Interests</Text>
             </View>
-            <View className="toggle">
-              <Text> Toggle Button </Text>
-            </View>
+             
           </View>
           <View className="w-['90%'] h-[1px] bg-gray-200 justify-center items-center ml-auto mr-auto"></View>
 
           <View className="px-4 py-6 flex-row justify-between">
             <View className="flex-row gap-4 items-center">
               <HDImage width={32} height={32} className="align-middle" />
-              <Text className="text-xl">Notifications</Text>
+              <Text className="text-xl">HD Images</Text>
             </View>
             <View className="toggle">
-              <Text> Toggle Button </Text>
+            <ToggleSwitch label="Switch 1" storageKey="switch1" initialValue={false} />
             </View>
           </View>
           <View className="w-['90%'] h-[1px] bg-gray-200 justify-center items-center ml-auto mr-auto"></View>
@@ -83,10 +84,10 @@ const SignupSetting = () => {
           <View className="px-4 py-6 flex-row justify-between">
             <View className="flex-row gap-4 items-center">
               <Play width={32} height={32} className="align-middle" />
-              <Text className="text-xl">Notifications</Text>
+              <Text className="text-xl">Auto play</Text>
             </View>
             <View className="toggle">
-              <Text> Toggle Button </Text>
+            <ToggleSwitch label="Switch 1" storageKey="switch1" initialValue={false} />
             </View>
           </View>
           <View className="w-['90%'] h-[1px] bg-gray-200 justify-center items-center ml-auto mr-auto"></View>
@@ -96,11 +97,11 @@ const SignupSetting = () => {
 
          <View className="footer bg-slate-500 p-4   " style={styles.footer} > 
            <View className="align-middle flex-row flex-wrap gap-2 items-center justify-center ">
-             <Text className="text-gray-300 text-xl p-4">Share this app</Text>
-             <Text className="text-gray-300 text-xl p-4">Rate this app</Text>
-             <Text className="text-gray-300 text-xl p-4">Feedback</Text>
-             <Text className="text-gray-300 text-xl p-4">T&C</Text>
-             <Text className="text-gray-300 text-xl p-4">Privacy Policy</Text>
+              <Text className="text-gray-300 text-xl p-4">Share this app</Text>
+              <Text className="text-gray-300 text-xl p-4">Rate this app</Text>
+              <Text className="text-gray-300 text-xl p-4">Feedback</Text>
+              <Text className="text-gray-300 text-xl p-4">T&C</Text>
+              <Text className="text-gray-300 text-xl p-4">Privacy Policy</Text>
             </View>
          </View>
 
