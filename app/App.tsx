@@ -10,15 +10,25 @@ import FeedScreen from "../screens/FeedScreen";
 import CourseSlider from "../components/CourseSlider";  
 import InterestSelection from "../screens/InterestSelection";
 import LoginPage from "../screens/LoginPage";
+import SignupSetting from "../screens/SignupSetting"; 
 
 export default function App() {
 
  return (
     <SafeAreaProvider style={styles.container}>
-              <SafeAreaView    > 
+              <SafeAreaView style={{ flex: 1 }}>
                   {/* <CourseSlider /> 
-                  <InterestSelection />*/}
-                  <LoginPage />
+                  <InterestSelection />
+                   <LoginPage />
+              <SignupSetting /> 
+             
+             <InterestSelection />*/}
+                  <SignupSetting /> 
+             
+                {/*
+                    <CourseSlider />  
+                  <InterestSelection />
+                   <SignupSetting /> */}
                 </SafeAreaView>  
             <StatusBar style="auto" />
      </SafeAreaProvider>
