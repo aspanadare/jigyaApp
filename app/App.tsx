@@ -9,14 +9,16 @@ import CourseCard from "../components/CourseCard";
 import FeedScreen from "../screens/FeedScreen";
 import CourseSlider from "../components/CourseSlider";  
 import InterestSelection from "../screens/InterestSelection";
+import LoginPage from "../screens/LoginPage";
 
 export default function App() {
 
  return (
     <SafeAreaProvider style={styles.container}>
               <SafeAreaView    > 
-                  {/* <CourseSlider /> */}
-                  <InterestSelection />
+                  {/* <CourseSlider /> 
+                  <InterestSelection />*/}
+                  <LoginPage />
                 </SafeAreaView>  
             <StatusBar style="auto" />
      </SafeAreaProvider>

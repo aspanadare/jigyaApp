@@ -21,7 +21,7 @@ const interests = [
 { id:"4", name: "Marketing"},
 { id:"5", name: 'AI and ML'},
 { id:"6", name: "Sports Management"},
-{ id:"7", name: "Human Resource Management"},
+{ id:"7", name: "HR Management"},
 { id:"8", name: "Personal Development"},
 { id:"9", name: "Project Management"},
 { id:"10", name: "Communication and Soft Skills"},
@@ -41,7 +41,7 @@ const interests = [
 { id:"23", name: "Leadership"},
 { id:"24", name: "Sustainability and CSR"},
 { id:"25", name: "Strategy"},
-{ id:"26", name: "Z-Others"},
+{ id:"26", name: "Others"},
   
 ];
 
@@ -92,7 +92,7 @@ const toggleInterest = (id: string, type: string) => {
     <View style={styles.itemContainer} className=" w-full ">
       <View  className="mr-auto text-left"> 
         <Text style={styles.itemText}>{item.name}</Text></View>
-      <View style={styles.iconsContainer} className="ml-auto gap-2">
+      <View style={styles.iconsContainer} className="ml-auto gap-1">
         <TouchableOpacity onPress={() => toggleInterest(item.id, "like")}>
           <View
             style={
@@ -103,7 +103,7 @@ const toggleInterest = (id: string, type: string) => {
           >
             <MaterialCommunityIcons
               name={item.liked ? "thumb-up" : "thumb-up"}
-              size={24}
+              size={18}
               color={item.liked ? "#2DCB42" : "#B8B8B8"}
             />
           </View>
@@ -118,7 +118,7 @@ const toggleInterest = (id: string, type: string) => {
           >
             <MaterialCommunityIcons
               name={item.disliked ? "thumb-down" : "thumb-down"}
-              size={24}
+              size={18}
               color={item.disliked ? "#FF5733" : "#B8B8B8"}
             />
           </View>
@@ -130,10 +130,10 @@ const toggleInterest = (id: string, type: string) => {
   return (
     <SafeAreaProvider style={styles.container} >
       <SafeAreaView >
-        <View className="my-8 ">
+        <View className="my-2 ">
             <Text style={styles.headerText} className="text-center ">Your Interests</Text>
-            <Text className="text-center p-3 pb-5 leading-7 ">You'll see more insights from the interests as marked 
-as " {thumbsUp} " and less from marked from " {thumsDown} ". feel free to add 
+            <Text className="text-center pb-6 leading-7 text-sm ">You'll see more insights from the interests as marked{'\n'} 
+as " {thumbsUp} "  and less from marked from " {thumsDown} ". feel free to add {'\n'}
 to add or remove interests to personalize your feed</Text>
             <FlatList
               
@@ -173,18 +173,17 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 16,
     textAlign:'left',
-    marginHorizontal:16,
     marginVertical:4
   },
   iconsContainer: {
     flexDirection: "row",
     alignSelf:'flex-end',
-    marginEnd:20,
+    marginEnd:8,
   },
   headerText: {
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: "bold",
-     
+    marginBottom: 10,
   }, 
   likedIconContainer: {
     backgroundColor: "#BFEFC6", // Green background for liked
