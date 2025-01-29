@@ -58,7 +58,7 @@ const EMPTY_ITEM_SIZE = (width - ITEM_SIZE) / 2;
                   
                 pagingEnabled
                 snapToAlignment='center'
-                scrollEventThrottle={1}
+                scrollEventThrottle={16}
                 onScroll={(e) =>{ 
                     const x = e.nativeEvent.contentOffset.x;
                     setCurrentIndex(Math.floor(x / width));
