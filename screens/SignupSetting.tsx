@@ -28,17 +28,17 @@ const SignupSetting = () => {
         {/* Sign section */}
         <View style={styles.signUp} className="px-4 py-6 flex-2">
           <View>
-            <Text className="text-white font-bold text-2xl mb-4">
+            <Text className="text-white font-bold text-xl mb-4">
               Sign In for free
             </Text>
-            <Text className="text-white text-xl mb-8">
+            <Text className="text-white text-md mb-8">
               Unlock your learning potential! Dive into a world of knowledge,
               connect with experts, and land your dream job.
             </Text>
 
             <View className="flex-row justify-between items-center ">
               <Pressable className="px-4 py-4 rounded-md bg-white w-28 shadow-slate-950 align-top">
-                <Text className="text-md text-center text-lg">Sign in</Text>
+                <Text className="text-md text-center text-md">Sign in</Text>
               </Pressable>
               <View className="flex-row ">
                 <Googleround width={62} height={62} className="mb-4" />

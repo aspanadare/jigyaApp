@@ -1,49 +1,53 @@
-import React, { useState } from "react";
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import InsightCard from '../components/InsightCard';
+import { View, Text,StyleSheet, Dimensions,SafeAreaView} from 'react-native'
+import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
- 
-import TopTabs from "../components/TopTabs";
-import CourseCard from "../components/CourseCard";
-import FeedScreen from "../screens/FeedScreen";
-import CourseSlider from "../components/CourseSlider";  
-import InterestSelection from "../screens/InterestSelection";
-import LoginPage from "../screens/LoginPage";
-import SignupSetting from "../screens/SignupSetting"; 
+import {  useWindowDimensions } from 'react-native';
+import { TabView, SceneMap } from 'react-native-tab-view';
+import Feed from '../screens/FeedScreen';
+import SecondTab from '../screens/InterestSelection';
+import ThirdTab from '../screens/SignupSetting';
+import TopBar from './TopBar'
 
-export default function App() {
 
- return (
-    <SafeAreaProvider style={styles.container}>
-              <SafeAreaView style={{ flex: 1 }}>
-                  {/* <CourseSlider /> 
-                  <InterestSelection />
-                   <LoginPage />
-              <SignupSetting /> 
-             
-             <InterestSelection />*/}
-                  <SignupSetting /> 
-             
-                {/*
-                    <CourseSlider />  
-                  <InterestSelection />
-                   <SignupSetting /> */}
-                </SafeAreaView>  
-            <StatusBar style="auto" />
-     </SafeAreaProvider>
-       
-  
+
+const renderScene = SceneMap({
+  third: ThirdTab,
+  second: Feed,
+  first: SecondTab,
+});
+
+const routes = [
+  { key: 'first', title: 'TopBar 1' },
+  { key: 'second', title: 'TopBar 2' },
+  { key: 'third', title: 'TopBar 3' },
+];
+
+const {width,height} = Dimensions.get('window');
+const Tab = () => {
+  const layout = useWindowDimensions();
+  const [index, setIndex] = React.useState(1);
+  return (
+    <SafeAreaProvider>
+      
+      <TabView
+        navigationState={{ index, routes }}
+        renderScene={renderScene}
+        onIndexChange={setIndex}
+        initialLayout={{ width: layout.width, height: layout.height }}
+        renderTabBar={()=> <TopBar index={index} setIndex={setIndex} />}
+      />
+    
+    </SafeAreaProvider>
    
-  );
+  )
 }
+
+export default Tab
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-   
+    width: width,
+    height: height,
+    
   },
 });

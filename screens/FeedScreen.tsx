@@ -12,10 +12,10 @@ const FeedScreen = () => {
   return (
     <SafeAreaProvider>
         <View style={styles.container}>
-            {/* {tabVisible && <TopTabs />}
+            {tabVisible && <TopTabs />}
             
-            <InsightCard onPress={() => setTabVisibility(!tabVisible)} /> */}
-            <CourseCard />
+            <InsightCard onPress={() => setTabVisibility(!tabVisible)} />
+            {/* <CourseCard /> */}
             <StatusBar style="auto" />
         </View>
     </SafeAreaProvider>

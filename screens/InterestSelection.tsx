@@ -128,8 +128,8 @@ const toggleInterest = (id: string, type: string) => {
   );
 
   return (
-    <SafeAreaProvider style={styles.container} >
-      <SafeAreaView >
+    <SafeAreaProvider  >
+      <SafeAreaView style={styles.container} >
         <View className="my-2 ">
             <Text style={styles.headerText} className="text-center ">Your Interests</Text>
             <Text className="text-center pb-6 leading-7 text-sm ">You'll see more insights from the interests as marked{'\n'} 
@@ -145,8 +145,7 @@ to add or remove interests to personalize your feed</Text>
               renderToHardwareTextureAndroid
               contentContainerStyle={{ alignItems: "flex-start",gap:6}}
               pagingEnabled
-              
-              scrollEventThrottle={16}
+              scrollEventThrottle={64}
             />
        </View>
       </SafeAreaView>
@@ -181,9 +180,10 @@ const styles = StyleSheet.create({
     marginEnd:8,
   },
   headerText: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
+    marginTop:32,
   }, 
   likedIconContainer: {
     backgroundColor: "#BFEFC6", // Green background for liked
