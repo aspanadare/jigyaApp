@@ -11,10 +11,9 @@ import TopBar from './TopBar'
 import InsightCard from '../components/InsightCard';
 
 
-
 const renderScene = SceneMap({
   third: ThirdTab,
-  second: InsightCard,
+  second: FeedScreen,
   first: SecondTab,
 });
 

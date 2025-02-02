@@ -1,32 +1,33 @@
-import React  from "react";
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Button, View } from 'react-native';
-import InsightCard from '../components/InsightCard';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
- 
+import React  from "react"; 
+import { StyleSheet, Button, View } from 'react-native'; 
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import  CardContainer from './carousel/CardContainer';
+
+
+
+
 
 const FeedScreen = () => {
-  const width = useSharedValue(100);
-  const handlePress = () => {
-    width.value = withSpring(width.value + 50);
-  };
+ 
+  const data = [
+    { image:require('./img/img1.jpg') },
+    { image:require('./img/img2.jpg') },
+    { image:require('./img/img3.jpg') },
+    { image:require('./img/img4.jpg') },
+ 
+     
+  ]
+ 
+
   return (
     
-    <SafeAreaProvider>
-      <View style={styles.container}>
-      <Animated.View
-        style={{
-          width,
-          height: 100,
-          backgroundColor: 'violet',
-        }}
-      />  
- <Button onPress={handlePress} title="Click me" />
-      </View>
-     
-      <StatusBar style="auto" />
-    </SafeAreaProvider>
+    
+    <GestureHandlerRootView style={{flex: 1}}>
+      <SafeAreaView style={styles.container}>
+        <CardContainer data={data} maxVisibleItems={3} />
+      </SafeAreaView>
+    </GestureHandlerRootView>
   )
 }
 
