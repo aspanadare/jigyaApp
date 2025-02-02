@@ -50,7 +50,7 @@ const SignupSetting = () => {
 
         {/* Sign setting section */}
         <View className="setting flex-2">
-          <View className="px-4 py-6 flex-row justify-between">
+          <View className="px-4 py-4 flex-row justify-between">
             <View className="flex-row gap-4 items-center">
               <Bell width={32} height={32} className="align-middle" />
               <Text className="text-xl">Notifications</Text>
@@ -61,7 +61,7 @@ const SignupSetting = () => {
           </View>
           <View className="w-['90%'] h-[1px] bg-gray-200 justify-center items-center ml-auto mr-auto"></View>
 
-          <View className="px-4 py-6 flex-row justify-between">
+          <View className="px-4 py-4 flex-row justify-between">
             <View className="flex-row gap-4 items-center">
               <Filter width={32} height={32} className="align-middle" />
               <Text className="text-xl">Your Interests</Text>
@@ -70,7 +70,7 @@ const SignupSetting = () => {
           </View>
           <View className="w-['90%'] h-[1px] bg-gray-200 justify-center items-center ml-auto mr-auto"></View>
 
-          <View className="px-4 py-6 flex-row justify-between">
+          <View className="px-4 py-4 flex-row justify-between">
             <View className="flex-row gap-4 items-center">
               <HDImage width={32} height={32} className="align-middle" />
               <Text className="text-xl">HD Images</Text>
@@ -81,7 +81,7 @@ const SignupSetting = () => {
           </View>
           <View className="w-['90%'] h-[1px] bg-gray-200 justify-center items-center ml-auto mr-auto"></View>
 
-          <View className="px-4 py-6 flex-row justify-between">
+          <View className="px-4 py-4 flex-row justify-between">
             <View className="flex-row gap-4 items-center">
               <Play width={32} height={32} className="align-middle" />
               <Text className="text-xl">Auto play</Text>

@@ -6,20 +6,22 @@ import { TabView, SceneMap } from 'react-native-tab-view';
 import Feed from '../screens/FeedScreen';
 import SecondTab from '../screens/InterestSelection';
 import ThirdTab from '../screens/SignupSetting';
+import FeedScreen from '../screens/FeedScreen';
 import TopBar from './TopBar'
+import InsightCard from '../components/InsightCard';
 
 
 
 const renderScene = SceneMap({
   third: ThirdTab,
-  second: Feed,
+  second: InsightCard,
   first: SecondTab,
 });
 
 const routes = [
-  { key: 'first', title: 'TopBar 1' },
-  { key: 'second', title: 'TopBar 2' },
-  { key: 'third', title: 'TopBar 3' },
+  { key: 'first', title: '' },
+  { key: 'second', title: '' },
+  { key: 'third', title: '' },
 ];
 
 const {width,height} = Dimensions.get('window');

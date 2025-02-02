@@ -7,7 +7,7 @@ const TopTabs = () => {
 
      return (
         <SafeAreaView style={styles.safeArea}>
-            <View style={styles.topTabs}>
+            <View className="flex-row  justify-around w-full z-30  transition-all" >
                 {["Feed", "Jobs", "Courses", "Insights"].map((tab) => (
                     <Pressable key={tab} onPress={() => setSelectedTab(tab)}>
                         <View
@@ -37,28 +37,15 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
+        padding:2,
+        paddingTop:20,
         backgroundColor: "white", // Optional: Add padding or margin if needed
-        zIndex:10,
-       
+        zIndex:9,
+        elevation:3,
+        height:55,
+        borderRadius:16,
     },
-    topTabs: {
-        marginTop:20,
-        backgroundColor: "white",
-        borderBottomLeftRadius: 16,
-        borderBottomRightRadius: 16,
-        shadowColor: "#000000",
-        shadowOffset: {
-          width: 0,
-          height: 1,
-        },
-        shadowOpacity:  0.16,
-        shadowRadius: 1.51,
-        elevation: 1,
-        flexDirection: "row",
-        justifyContent: "space-around",
-        paddingVertical: 10,
-        zIndex: 10,
-    },
+   
     tabButton: {
         paddingHorizontal: 16,
         paddingVertical: 4,

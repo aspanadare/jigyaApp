@@ -11,7 +11,7 @@ interface TopBarProps {
 const TopBar: React.FC<TopBarProps> = ({ index, setIndex }) => {
   return (
      <View style={styles.container}>
-      <Text>TopBar</Text>
+      {/* <Text>TopBar</Text> */}
     </View>
   )
 }

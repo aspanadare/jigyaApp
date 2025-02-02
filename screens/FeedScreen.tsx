@@ -1,23 +1,31 @@
-import React, { useState } from "react";
+import React  from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Button, View } from 'react-native';
 import InsightCard from '../components/InsightCard';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
  
-import TopTabs from "../components/TopTabs";
-import CourseCard from "../components/CourseCard";
 
 const FeedScreen = () => {
-       const [tabVisible, setTabVisibility] = useState(false);
+  const width = useSharedValue(100);
+  const handlePress = () => {
+    width.value = withSpring(width.value + 50);
+  };
   return (
+    
     <SafeAreaProvider>
-        <View style={styles.container}>
-            {tabVisible && <TopTabs />}
-            
-            <InsightCard onPress={() => setTabVisibility(!tabVisible)} />
-            {/* <CourseCard /> */}
-            <StatusBar style="auto" />
-        </View>
+      <View style={styles.container}>
+      <Animated.View
+        style={{
+          width,
+          height: 100,
+          backgroundColor: 'violet',
+        }}
+      />  
+ <Button onPress={handlePress} title="Click me" />
+      </View>
+     
+      <StatusBar style="auto" />
     </SafeAreaProvider>
   )
 }
@@ -25,11 +33,11 @@ const FeedScreen = () => {
 export default FeedScreen
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-     
-    },
-  });
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+  },
+});
