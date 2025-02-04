@@ -2,7 +2,11 @@ import { View, Text, StyleSheet, Dimensions, SafeAreaView } from "react-native";
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useWindowDimensions } from "react-native";
-
+// import { TabView, SceneMap } from "react-native-tab-view";
+// import Feed from "../screens/FeedScreen";
+// import SecondTab from "../screens/InterestSelection";
+// import ThirdTab from "../screens/SignupSetting";
+// import TopBar from "./TopBar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
