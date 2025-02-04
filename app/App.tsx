@@ -1,14 +1,15 @@
-import { View, Text,StyleSheet, Dimensions,SafeAreaView} from 'react-native'
+
 import React from 'react'
+import { View, Text,StyleSheet, Dimensions,useWindowDimensions} from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import {  useWindowDimensions } from 'react-native';
+ 
 import { TabView, SceneMap } from 'react-native-tab-view';
-import Feed from '../screens/FeedScreen';
+ 
 import SecondTab from '../screens/InterestSelection';
 import ThirdTab from '../screens/SignupSetting';
 import FeedScreen from '../screens/FeedScreen';
 import TopBar from './TopBar'
-import InsightCard from '../components/InsightCard';
+ 
 
 
 const renderScene = SceneMap({

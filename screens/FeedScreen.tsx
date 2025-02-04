@@ -3,6 +3,7 @@ import { StyleSheet, Button, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import  CardContainer from './carousel/CardContainer';
+import mockData from './carousel/mockData';
 
 
 
@@ -25,7 +26,7 @@ const FeedScreen = () => {
     
     <GestureHandlerRootView style={{flex: 1}}>
       <SafeAreaView style={styles.container}>
-        <CardContainer data={data} maxVisibleItems={3} />
+        <CardContainer data={mockData}   />
       </SafeAreaView>
     </GestureHandlerRootView>
   )
@@ -36,7 +37,7 @@ export default FeedScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+     
     alignItems: 'center',
     justifyContent: 'center',
 

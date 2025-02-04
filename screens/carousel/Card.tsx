@@ -1,124 +1,178 @@
-import { Dimensions, SafeAreaView, StyleSheet } from 'react-native';
-import React from 'react';
+import "react-native-gesture-handler";
+import React, { useState } from "react";
+
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+  SafeAreaView,
+  Platform,
+} from "react-native";
 import Animated, {
   useAnimatedStyle,
-  interpolate,
+  useSharedValue,
   withTiming,
-  SharedValue, // Import SharedValue
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 import {
-  FlingGestureHandler,
-  Directions,
-  State,
-} from 'react-native-gesture-handler';
+  Gesture,
+  GestureDetector,
+  GestureHandlerRootView,
+} from "react-native-gesture-handler";
+import { LinearGradient } from "expo-linear-gradient";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-interface CardProps {
-  item: { image: any };
-  index: number;
-  dataLength: number;
-  maxVisibleItems: number; // Add type for maxVisibleItems
-  animatedValue: SharedValue<number>; // Use SharedValue type
-  currentIndex: SharedValue<number>; // Use SharedValue type
-  prevIndex: SharedValue<number>; // Use SharedValue type
-}
+type Item = {
+  key: string;
+  title: string;
+  image: string;
+  bg: string;
+  description: string;
+  author: {
+    name: string;
+    avatar: string;
+  };
+  liked?: boolean; // Make liked and disliked optional
+  disliked?: boolean;
+};
 
-const Card: React.FC<CardProps> = ({
-  maxVisibleItems,
-  item,
-  index,
-  dataLength,
-  animatedValue,
-  currentIndex,
-  prevIndex,
-}) => {
-    const IMG_WDT = Dimensions.get("window").width; // Or a specific width if needed
-    const IMG_HT = Dimensions.get("window").height; // Or a specific height
-  
+type VerticalListProps = {
+  data: Item[];
+};
+type AnimatedCardProps = {
+  item: Item;
+};
 
-  const animatedStyle = useAnimatedStyle(() => {
-    const translateY = interpolate(
-      animatedValue.value,
-      [index - 1, index, index + 1],
-      [-30, 1, 30],
-    );
-    const translateY2 = interpolate(
-      animatedValue.value,
-      [index - 1, index, index + 1],
-      [-30, 1, 10],
-    );
-    const scale = interpolate(
-      animatedValue.value,
-      [index - 1, index, index + 1],
-      [1, 1, 1],
-    );
-    const opacity = interpolate(
-      animatedValue.value,
-      [index - 1, index, index + 1],
-      [1, 1, 0],
-    );
-    return {
-      transform: [
-        {
-          translateY: index === prevIndex.value ? translateY2 : translateY,
-        },
-        { scale },
-      ],
-      opacity:
-        index < currentIndex.value + maxVisibleItems - 1
-          ? opacity
-          : index === currentIndex.value + maxVisibleItems - 1
-          ? withTiming(1)
-          : withTiming(0),
-    };
-  });
+let  { width, height } = Dimensions.get(Platform.OS === 'ios' ? 'screen' : 'window');
+ 
+ 
+ 
+
+//const [tabVisible, setTabVisibility] = useState(false);
+
+// Define tap gesture
+//  const tap = Gesture.Tap()
+//    .onBegin(() => {
+//      // Toggle tab visibility
+//      setTabVisibility(prev => !prev);
+//      // Animate TopTabs position
+//      top.value = withTiming(tabVisible ? -60 : 0, { duration: 300 });
+//    });
+
+//  // Animated styles for the TopTabs
+//  const animatedStyles = useAnimatedStyle(() => ({
+//    transform: [{ translateY: top.value }],
+//    opacity: withTiming(tabVisible ? 1 : 0, { duration: 300 }), // Fade in/out effect
+//  }));
+
+function Card({ item }: AnimatedCardProps) {
+  // Define tap gesture
 
   return (
-     <SafeAreaView style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-    <FlingGestureHandler
-      key="up"
-      direction={Directions.UP}
-      onHandlerStateChange={ev => {
-        if (ev.nativeEvent.state === State.END) {
-          if (currentIndex.value !== 0) {
-            animatedValue.value = withTiming((currentIndex.value -= 1));
-            prevIndex.value = currentIndex.value + 1; // Corrected: Should be the *next* index
-          }
-        }
-      }}>
-      <FlingGestureHandler
-        key="down"
-        direction={Directions.DOWN}
-        onHandlerStateChange={ev => {
-          if (ev.nativeEvent.state === State.END) {
-            if (currentIndex.value !== dataLength - 1) {
-              animatedValue.value = withTiming((currentIndex.value += 1));
-              prevIndex.value = currentIndex.value - 1; // Corrected: Should be the *previous* index
-            }
-          }
-        }}>
-        <Animated.Image
-          source={item.image}
-          style={[
-            styles.image,
-            {
-              zIndex: dataLength - index,
-              width: IMG_WDT,
-              height: IMG_HT,
-            },
-            animatedStyle,
-          ]}
-        />
-      </FlingGestureHandler>
-    </FlingGestureHandler>
+    <SafeAreaView style={styles.safeArea}>
+      
+      {/* ONLY ONE SafeAreaView */}
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#FFF",
+          height: height,
+          width: width,
+        }}
+      >
+        <TouchableOpacity style={styles.cardContainer}>
+          <View className="profileContainer my-1">
+            <View className="profileImg my-2 flex-row gap-2 items-center">
+              <Image
+                source={{ uri: item.author.avatar }}
+                alt="Profile"
+                className="inline w-[30px] h-[30px] rounded-full"
+              />
+              <Text className="text-md font-semibold leading-4  ">
+                {item.author.name} |{" "}
+                <Text className="source font-normal text-sm ">Source: hbr</Text>
+              </Text>
+            </View>
+          </View>
+          <Image
+            className="rounded-2xl mb-4 block w-[100%] h-[250px] "
+            source={{ uri: item.image }}
+          />
+          <View className="content flex-auto">
+            <Text className="text-lg mb-4 font-semibold tracking-wide">
+            { item.title}
+            </Text>
+            <Text className="text-base mb-4">
+             { item.description}
+            </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.gradientCont}>
+          <LinearGradient
+            colors={["#E2234A", "#047481"]}
+            start={{ y: 1, x: 0.1 }}
+            style={styles.gradient}
+          >
+            <Text className="text-md font-semibold block text-white">
+              Budget allocated for the mission is ₹615 crore
+            </Text>
+            <Text className="text-sm font-light text-white">
+              Tap to read more
+            </Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
-};
+}
 
 export default Card;
 
 const styles = StyleSheet.create({
-  image: {
-    position: 'absolute',
-    borderRadius: 10,
+  safeArea: {
+    flex: 1,
+    position: "relative",
+    justifyContent: "flex-start", // Align content at the top
+  },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  topTabsContainer: {
+    position: "absolute",
+    elevation: 5,
+    left: 0,
+    right: 0,
+    zIndex: 20, // Ensure it appears above other content
+    transform: [{ translateY: -60 }], // Initial position off-screen
+    opacity: 0, // Start with opacity zero for fade effect
+  },
+  cardContainer: {
+    paddingHorizontal: 16,
+    flex: 1,
+  },
+  insightPic: {
+    width: "100%",
+    height: 250,
+    borderRadius: 12,
+  },
+  gradient: {
+    padding: 16,
+  },
+  gradientCont: {
+    position: "absolute",
+    left: 0,
+    ...Platform.select({
+      ios: {
+        bottom: 80,
+      },
+      android: {
+        bottom: 0,
+      },
+    }), // <-- Comma here
+    width: "100%",
   },
 });
