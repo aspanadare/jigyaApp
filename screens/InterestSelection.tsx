@@ -89,7 +89,7 @@ const toggleInterest = (id: string, type: string) => {
     item: { id: string; name: string; liked: boolean; disliked: boolean };
   }) => (
 
-    <View style={styles.itemContainer} className=" w-full ">
+    <View style={styles.itemContainer} className="w-full ">
       <View  className="mr-auto text-left"> 
         <Text style={styles.itemText}>{item.name}</Text></View>
       <View style={styles.iconsContainer} className="ml-auto gap-1">
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor:'#FFF',
      
-    margin: 16,
+    padding: 16,
   },
   itemContainer: {
     flexDirection: "row",

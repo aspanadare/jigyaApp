@@ -44,6 +44,28 @@ const styles = StyleSheet.create({
         elevation:3,
         height:55,
         borderRadius:16,
+       
+    },
+    topTabs: {
+        marginTop:0,
+        backgroundColor: "white",
+        height: 52,
+        paddingLeft: 32,
+        paddingRight: 32,
+        borderBottomLeftRadius: 8,
+        borderBottomRightRadius: 8,
+        shadowColor: "#000000",
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity:  0.16,
+        shadowRadius: 1.51,
+        elevation: 1,
+        flexDirection: "row",
+        justifyContent: "space-around",
+        paddingVertical: 10,
+        zIndex: 10,
     },
    
     tabButton: {
@@ -60,7 +82,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     activeTab: {
-        backgroundColor: "#007BFF", // Change color for active tab
+        backgroundColor: "#379AF7", // Change color for active tab
         color: "#FFFFFF",
     },
 });
