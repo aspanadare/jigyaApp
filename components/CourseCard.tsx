@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     borderRadius: 20, // Apply border radius here for the container
     overflow: "hidden", // Ensure children respect the border radius
     width: windowWidth - 80,
-    height: 600,
+    height: 530,
 
     justifyContent: "center",
     alignItems: "center",
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   },
   courseIT:{
     color:'#FFF',
-    fontSize:12
+    fontSize:10
   },
 
   linGradiant: {

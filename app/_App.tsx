@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import InsightCard from '../components/InsightCard';
+// import InsightCard from '../components/InsightCard';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
  
 import TopTabs from "../components/TopTabs";

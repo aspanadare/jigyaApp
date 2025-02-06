@@ -139,11 +139,11 @@ const styles = StyleSheet.create({
     height: 250,
     borderRadius: 12,
   },
-  gradientCont: {
-    position: 'absolute',
-    left: 0,
-    bottom: 0,
-    width: '100%',
+  gradientCont:{
+    position:'absolute',
+    left:0,
+    bottom:44,
+    width:'100%',
   },
   gradient: {
     padding: 16,
