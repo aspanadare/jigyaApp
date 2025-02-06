@@ -13,6 +13,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FeedScreen from "../screens/FeedScreen";
 import InterestScreen from "../screens/InterestSelection";
 import SignupSetting from "../screens/SignupSetting";
+import InitialSearch from "../screens/InitialSearch";
 import LoginPage from "../screens/LoginPage";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -32,7 +33,7 @@ const BottomTabNavigator = () => {
     >
       <Tab.Screen
         name="Interest"
-        component={InterestScreen}
+        component={InitialSearch}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused, color, size }) => (
