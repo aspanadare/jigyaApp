@@ -1,4 +1,4 @@
-import { View, Text, Dimensions, Platform } from "react-native";
+import { View, Text, Dimensions, Platform, Animated } from "react-native";
 import React from "react";
 import { FlatList } from "react-native-gesture-handler";
 import Card from './Card'
@@ -20,13 +20,12 @@ type Item = {
 type VerticalListProps = {
   data: Item[];
 };
-type AnimatedCardProps = {
-  item: Item;
-};
+ 
 
 let  { width, height } = Dimensions.get(Platform.OS === 'ios' ? 'screen' : 'window');
-const _spacing = 4;
-const _itemSize = height;
+const _spacing = 14;
+const _itemSize = width;
+const _itemWidth = width;
 const _itemFullSize = _itemSize + _spacing ;
 
 // function Card({ item }: AnimatedCardProps) {
@@ -45,13 +44,18 @@ const _itemFullSize = _itemSize + _spacing ;
 
 const CardContainer = ({ data }: VerticalListProps) => {
   return (
-    <FlatList 
-     data={data}
-     contentContainerStyle={{gap:_spacing }}
-     snapToInterval={_itemFullSize }
-     decelerationRate={"fast"}
-     renderItem={({ item }) => <Card item={item} />} 
-     />
+     <View style={{flex:1,justifyContent:'center', alignItems:'center'}}>
+        <FlatList 
+          contentContainerStyle={{gap:_spacing,
+            paddingHorizontal :(width - _itemFullSize /2)
+          }}
+          snapToInterval={_itemWidth - _spacing}
+          data={data}
+          keyExtractor={item => String(item.key)}
+          renderItem={({ item,index }) => <Card item={item}   />} 
+        />
+        </View>
+        
   );
 };
 

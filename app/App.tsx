@@ -82,7 +82,7 @@ const TabScreen = () => {
   return (
     <NavigationContainer>
       <SafeAreaProvider>
-        <Stack.Navigator initialRouteName="BottomTab">
+        <Stack.Navigator initialRouteName="FeedScreen">
           <Stack.Screen
             name="BottomTab"
             component={BottomTabNavigator}

@@ -3,7 +3,8 @@ import { StyleSheet, Button, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import  CardContainer from './carousel/CardContainer';
-import mockData from './carousel/mockData';
+import {data2} from './carousel/mockData';
+import JobCardSlider from "../components/JobCardSlider";
 
 
 
@@ -26,7 +27,7 @@ const FeedScreen = () => {
     
     <GestureHandlerRootView style={{flex: 1}}>
       <SafeAreaView style={styles.container}>
-        <CardContainer data={mockData}   />
+        <JobCardSlider data={data2}   />
       </SafeAreaView>
     </GestureHandlerRootView>
   )
