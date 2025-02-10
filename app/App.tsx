@@ -17,6 +17,12 @@ import SearchedResult from "../screens/SearchedResult";
 import LoginPage from "../screens/LoginPage";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import InitialSearch from "../screens/InitialSearch";
+import JobCardSlider from "../components/JobCardSlider";
+import { data2 } from "../screens/carousel/mockData";
+
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+ 
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -24,6 +30,7 @@ const Tab = createBottomTabNavigator();
 const { width, height } = Dimensions.get("window");
 const BottomTabNavigator = () => {
   return (
+    <GestureHandlerRootView style={{ flex: 1 }}> 
     <Tab.Navigator
       screenOptions={{
         tabBarStyle: styles.tabBar, 
@@ -62,8 +69,8 @@ const BottomTabNavigator = () => {
       />
 
       <Tab.Screen
-        name="SignupSetting"
-        component={SignupSetting}
+        name="JobCardSlider"
+        component={() => <JobCardSlider data={data2} />}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused, color, size }) => (
@@ -76,6 +83,7 @@ const BottomTabNavigator = () => {
         }}
       />
     </Tab.Navigator>
+    </GestureHandlerRootView>
   );
 };
 const TabScreen = () => {
@@ -91,15 +99,21 @@ const TabScreen = () => {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="LoginPage"
-            component={LoginPage}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
             name="FeedScreen"
             component={FeedScreen}
             options={{ headerShown: false }}
           />
+           <Stack.Screen
+            name="JobCardSlider"
+            component={() => <JobCardSlider data={data2} />}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="LoginPage"
+            component={LoginPage}
+            options={{ headerShown: false }}
+          />
+        
           <Stack.Screen
             name="InterestScreen"
             component={InterestScreen}
@@ -133,7 +147,12 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     paddingBottom: 0,
     paddingTop: 0,
-    height: 44,
+    height: 46,
+    position:'absolute',
+    bottom:0,
+    left:0,
+    zIndex:40,
+    right:0,
   },
 
   container: {

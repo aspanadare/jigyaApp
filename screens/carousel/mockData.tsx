@@ -1,16 +1,19 @@
 // mockData.ts
 import { faker } from "@faker-js/faker";
 
+
 faker.seed(12);
 
+
 // Generate first set of mock data
-const data = [...Array(20).keys()].map(() => ({
+const item = [...Array(20).keys()].map((_, index) => ({
     key: faker.string.uuid(),
     title: faker.music.genre(),
     image: faker.image.urlLoremFlickr({
         height: 300 * 1.4,
         category: "technology",
     }),
+    index: index, // Include the index here
     bg: faker.internet.color(),
     description: faker.lorem.words(60),
     author: {
@@ -18,6 +21,7 @@ const data = [...Array(20).keys()].map(() => ({
         avatar: faker.image.avatar(),
     }
 }));
+
 
 // Generate second set of mock data
 const data2 = [...Array(20).keys()].map(() => ({
@@ -37,7 +41,9 @@ const data2 = [...Array(20).keys()].map(() => ({
     experienceRange: `${faker.number.int({ min: 1, max: 5 })} - ${faker.number.int({ min: 5, max: 10 })} years`,
 }));
 
-export type Job = (typeof data2)[0]; // Type for jobs
-export type Item = (typeof data)[0];   // Type for items
 
-export { data, data2 }; // Named exports
+// export type Job = (typeof data2)[0]; // Type for jobs
+// export type Item = (typeof data)[0];   // Type for items
+
+
+export { item, data2 }; // Named exports

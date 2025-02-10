@@ -1,8 +1,8 @@
 // JobCardSlider.tsx
 import React from 'react';
 import JobCard from './JobCard'; // Ensure this is the correct import
-import { Dimensions, Platform, StyleSheet,Text, View, Animated, ImageBackground, SafeAreaView, StatusBar, FlatList, _Image, Pressable } from "react-native";
-import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
+import { Dimensions, Platform, StyleSheet,Text, Animated, ImageBackground, SafeAreaView, StatusBar, _Image, Pressable } from "react-native";
+
  
 
 type Item = {

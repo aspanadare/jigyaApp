@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, Text, StyleSheet } from 'react-native';
 
+
+
 const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => (
@@ -19,8 +21,12 @@ const SettingsScreen = () => (
   </View>
 );
 
+export const TAB_BAR_HEIGHT = 44; // Or whatever your tab bar height is
+
+
 const App = () => {
   return (
+    
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
