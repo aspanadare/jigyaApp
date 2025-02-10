@@ -13,9 +13,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FeedScreen from "../screens/FeedScreen";
 import InterestScreen from "../screens/InterestSelection";
 import SignupSetting from "../screens/SignupSetting";
-import InitialSearch from "../screens/InitialSearch";
+import SearchedResult from "../screens/SearchedResult";
 import LoginPage from "../screens/LoginPage";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import InitialSearch from "../screens/InitialSearch";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -33,7 +34,7 @@ const BottomTabNavigator = () => {
     >
       <Tab.Screen
         name="Interest"
-        component={InitialSearch}
+        component={SearchedResult}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused, color, size }) => (
@@ -83,7 +84,7 @@ const TabScreen = () => {
   return (
     <NavigationContainer>
       <SafeAreaProvider>
-        <Stack.Navigator initialRouteName="FeedScreen">
+        <Stack.Navigator initialRouteName="BottomTab">
           <Stack.Screen
             name="BottomTab"
             component={BottomTabNavigator}
@@ -102,6 +103,16 @@ const TabScreen = () => {
           <Stack.Screen
             name="InterestScreen"
             component={InterestScreen}
+            options={{ headerShown: false }}
+          />
+           <Stack.Screen
+            name="InitialSearch"
+            component={InitialSearch}
+            options={{ headerShown: false }}
+          />
+           <Stack.Screen
+            name="SearchedResult"
+            component={SearchedResult}
             options={{ headerShown: false }}
           />
           <Stack.Screen
