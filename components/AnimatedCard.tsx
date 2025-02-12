@@ -1,11 +1,10 @@
-import { View, Text, Dimensions, Platform, TouchableOpacity,Image,StyleSheet } from "react-native";
+
 import React from "react";
-import { interpolate, SharedValue, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue } from "react-native-reanimated";
+import { interpolate, SharedValue, useAnimatedStyle } from "react-native-reanimated";
+import { View, Text, Dimensions, Platform, TouchableOpacity,Image,StyleSheet } from "react-native";
 import Animated from "react-native-reanimated"; // Correct import
 import { LinearGradient } from "expo-linear-gradient";
-import { TAB_BAR_HEIGHT } from "../../app/index";
-
-
+// import { TAB_BAR_HEIGHT } from "../app/index";
 
 
 interface Item {
@@ -40,7 +39,7 @@ let  { width, height } = Dimensions.get(Platform.OS === 'ios' ? 'screen' : 'wind
 
 
 const _spacing = 0;
-const _itemHight = height - TAB_BAR_HEIGHT;
+const _itemHight = height - (TAB_BAR_HEIGHT || 0); 
 const _itemWidth = width;
 
 

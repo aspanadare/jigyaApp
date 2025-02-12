@@ -1,0 +1,81 @@
+import {  StyleSheet, Dimensions} from "react-native";
+import React from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+ 
+
+ 
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import FeedScreen from "../screens/FeedScreen";
+import InterestScreen from "../screens/InterestSelection";
+import SignupSetting from "../screens/SignupSetting";
+import SearchedResult from "../screens/InitialSearch";
+import LoginPage from "../screens/LoginPage";
+
+import InitialSearch from "../screens/InitialSearch";
+// import JobCardSlider from "../screens/carousel/JobCardSlider";
+// import { data2 } from "../screens/carousel/mockData";
+
+import { NavigationContainer } from '@react-navigation/native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import BottomTabNavigator from '../components/BottomTabNavigator';
+
+
+export const TAB_BAR_HEIGHT =  Platform.OS === 'ios' ? '10' : '44' ; 
+
+
+ 
+ 
+ 
+const Stack = createNativeStackNavigator();
+
+const { width, height } = Dimensions.get("window");
+
+
+const AppNavigator = () => {
+    return (
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <NavigationContainer>
+                <SafeAreaProvider>
+                    <Stack.Navigator
+                        // initialRouteName="BottomTab"
+                        screenOptions={{
+                            headerShown: false,
+                            gestureEnabled: true,
+                            gestureDirection: "horizontal",
+                        }}
+                    >
+                        <Stack.Screen
+                            name="FeedScreen"
+                            component={FeedScreen}
+                            options={{ headerShown: false }}
+                        />
+                        <Stack.Screen
+                            name="SignupSetting"
+                            component={SignupSetting}
+                            options={{ headerShown: false }}
+                        />
+                        <Stack.Screen
+                            name="InitialSearch"
+                            component={InitialSearch}
+                            options={{ headerShown: false }}
+                        />
+                        
+                    </Stack.Navigator>
+                </SafeAreaProvider>
+            </NavigationContainer>
+        </GestureHandlerRootView>
+    );
+};
+export default AppNavigator;
+
+
+const styles = StyleSheet.create({
+ 
+    container: {
+        width: width,
+        height: height,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+});

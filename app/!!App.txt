@@ -1,0 +1,45 @@
+import * as React from 'react';
+import { View, useWindowDimensions, StyleSheet, Platform, StatusBar } from 'react-native';
+import { TabView, SceneMap } from 'react-native-tab-view';
+import { SafeAreaView } from "react-native-safe-area-context";
+import Constants from 'expo-constants';
+
+import FeedScreen from "../screens/FeedScreen";
+
+import BottomNav from "../components/BottomNav";
+ 
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
+
+const renderScene = SceneMap({
+  first: FeedScreen,
+  second: FeedScreen,
+});
+
+const routes = [
+  { key: 'first', title: ' ' },
+  { key: 'second', title: ' ' },
+];
+
+export default function TabViewExample() {
+  const layout = useWindowDimensions();
+  const [index, setIndex] = React.useState(0);
+
+  return (
+         <SafeAreaView style={{ flex: 1, backgroundColor: '#444', paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0 }}>
+            <TabView
+              
+              navigationState={{ index, routes }}
+              renderScene={renderScene}
+              onIndexChange={setIndex}
+              initialLayout={{ width: layout.width }}
+              renderTabBar={()=> <BottomNav index={index}  setIndex={setIndex}/>}
+            />
+            <StatusBar  backgroundColor={'white'}/>
+         </SafeAreaView> 
+  );
+}
+
+
+
+ 

@@ -14,7 +14,7 @@ import {
     Animated,
   } from "react-native";
   import React, { useState } from "react";
-  import CourseCard from "./CourseCard";
+  import CourseCard from "../../components/CourseCard";
   import { SafeAreaProvider } from "react-native-safe-area-context";
   
   const { width, height } = Dimensions.get("window");
@@ -40,7 +40,7 @@ const EMPTY_ITEM_SIZE = (width - ITEM_SIZE) / 2;
             <StatusBar backgroundColor="red" />
             <Text className="font-bold text-xl text-center absolute top-4 left-4 mb-4 ">Courses you may like to take</Text>
             <ImageBackground
-              source={require("../assets/couse-carousel-bg.png")}
+              source={require("../../assets/course-carousel-bg.jpg")}
               style={styles.backgroundImage}
               resizeMode="cover"
             ></ImageBackground>

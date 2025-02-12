@@ -1,10 +1,10 @@
 import { View, Text, Dimensions, Platform, TouchableOpacity, Image, StyleSheet } from "react-native";
 import React from "react";
-import AnimatedCard from './AnimatedCard'
+import AnimatedCard from '../../components/AnimatedCard'
 import { useAnimatedScrollHandler, useSharedValue } from "react-native-reanimated";
 import Animated from "react-native-reanimated"; // Correct import
 
-import { TAB_BAR_HEIGHT } from "../../app/index";
+// import { TAB_BAR_HEIGHT } from "../../app/index";
  
 
 interface Item {
@@ -28,7 +28,7 @@ interface VerticalListProps {
 let { width, height } = Dimensions.get(Platform.OS === 'ios' ? 'screen' : 'window');
 
 const _spacing = 0;
-const _itemHight = height - TAB_BAR_HEIGHT;
+const _itemHight = height - (TAB_BAR_HEIGHT || 0); 
 const _itemWidth = width;
 
 const VerticalList: React.FC<VerticalListProps> = ({ data }) => {
@@ -41,7 +41,7 @@ const VerticalList: React.FC<VerticalListProps> = ({ data }) => {
 
 
   return (
-
+    
     <Animated.FlatList
       data={data}
 

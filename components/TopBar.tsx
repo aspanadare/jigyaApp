@@ -1,12 +1,12 @@
-// import { View, Text, StyleSheet,Dimensions } from 'react-native';
-// import React from 'react';
+import { View, Text, StyleSheet,Dimensions } from 'react-native';
+import React from 'react';
 
-// const {width,height} = Dimensions.get('window');
-// // Define prop types for TopBar
-// interface TopBarProps {
-//   index: number;
-//   setIndex: (index: number) => void;
-// }
+const {width,height} = Dimensions.get('window');
+// Define prop types for TopBar
+interface TopBarProps {
+  index: number;
+  setIndex: (index: number) => void;
+}
 
 const TopBar: React.FC<TopBarProps> = ({ index, setIndex }) => {
   return (
