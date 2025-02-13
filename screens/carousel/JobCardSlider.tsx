@@ -6,13 +6,9 @@ import { Dimensions, Platform, StyleSheet,Text, Animated, ImageBackground, SafeA
  
 
 type Item = {
- 
   key: string;
- 
   image: string;
   bg: string;
-  
- 
   companyName: string; // Ensure these properties are included
   companyLogo: string; // Ensure these properties are included
   position: string; // Required
@@ -36,17 +32,20 @@ const _itemFullSize = width + _spacing;
 const JobCardSlider = ({ data }: HorrListProps) => {
   return (
        <SafeAreaView style={styles.container}>
-                 <StatusBar backgroundColor="red" />
+
 
                             <ImageBackground
                               source={require("../../assets/jobBg.jpg")}
                               className='absolute w-full h-full'
                               resizeMode="cover"
-                            ></ImageBackground>
-                           <Text className="font-bold text-xl text-center absolute top-4 left-4 mb-4 ">Recommended opportunities for you</Text>
+                            >
+
+                            </ImageBackground>
+                                 <Text className="font-bold text-2xl text-center  mb-8 ">Recommended opportunities for you</Text>
        
                           <Animated.FlatList 
                               data={data}
+                              showsHorizontalScrollIndicator={false}
                               horizontal
                               snapToInterval={_imageWidth + _spacing}
                               decelerationRate={"fast"}

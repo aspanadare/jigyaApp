@@ -18,7 +18,7 @@ import SearchedResult from "../screens/SearchedResult";
 import LoginPage from "../screens/LoginPage";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import InitialSearch from "../screens/InitialSearch";
-import JobCardSlider from "../components/JobCardSlider";
+import JobCardSlider from "../screens/carousel/JobCardSlider";
 import { data2 } from "../screens/carousel/mockData";
 
 import { GestureHandlerRootView } from 'react-native-gesture-handler';

@@ -18,7 +18,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="Search"
         options={{
-          tabBarIcon: ({ color, size, focused }) => (
+          tabBarIcon: ({ color, size=32, focused }) => (
             <MaterialCommunityIcons
               name="magnify"
               color={focused ? "#2DA5CB" : color}
@@ -34,7 +34,7 @@ export default function TabLayout() {
             <MaterialCommunityIcons
               name="home"
               color={focused ? "#2DA5CB" : color}
-              size={size}
+              size={24}
             />
           ),
         }}
@@ -58,7 +58,7 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   tabBar: {
     backgroundColor: "black",
-    height: 60,
+    height: 48,
     borderTopWidth: 0,
     elevation: 0,
     paddingBottom: 10,

@@ -4,8 +4,9 @@ import { interpolate, SharedValue, useAnimatedStyle } from "react-native-reanima
 import { View, Text, Dimensions, Platform, TouchableOpacity,Image,StyleSheet } from "react-native";
 import Animated from "react-native-reanimated"; // Correct import
 import { LinearGradient } from "expo-linear-gradient";
-// import { TAB_BAR_HEIGHT } from "../app/index";
+ //import { TAB_BAR_HEIGHT } from "../app/index";
 
+ const TAB_BAR_HEIGHT = 46;
 
 interface Item {
   key: string;
@@ -19,36 +20,19 @@ interface Item {
     avatar: string;
   };
 }
-
-
-
-
+ 
 type AnimatedCardProps = {
   item: Item;
   index: number,
   scrollY: SharedValue<number>
 }
- 
-
-
-
-
+  
 let  { width, height } = Dimensions.get(Platform.OS === 'ios' ? 'screen' : 'window');
-
-
-
-
+ 
 const _spacing = 0;
 const _itemHight = height - (TAB_BAR_HEIGHT || 0); 
 const _itemWidth = width;
-
-
-
-
-
-
-
-
+ 
 function AnimatedCard({ item, index, scrollY }:AnimatedCardProps) {
     const stylez = useAnimatedStyle(() => {
       return{
@@ -113,10 +97,7 @@ function AnimatedCard({ item, index, scrollY }:AnimatedCardProps) {
 
 export default AnimatedCard;
 
-
-
-
-
+ 
 
 const styles = StyleSheet.create({
   safeArea: {

@@ -1,11 +1,12 @@
-import { View, Text, Dimensions, Platform, TouchableOpacity, Image, StyleSheet } from "react-native";
+import {  Dimensions, Platform } from "react-native";
 import React from "react";
-import AnimatedCard from '../../components/AnimatedCard'
 import { useAnimatedScrollHandler, useSharedValue } from "react-native-reanimated";
+import AnimatedCard from '../../components/AnimatedCard'
+
 import Animated from "react-native-reanimated"; // Correct import
 
 // import { TAB_BAR_HEIGHT } from "../../app/index";
- 
+const TAB_BAR_HEIGHT = 46;
 
 interface Item {
   key: string;
@@ -44,17 +45,17 @@ const VerticalList: React.FC<VerticalListProps> = ({ data }) => {
     
     <Animated.FlatList
       data={data}
-
       contentContainerStyle={{
         paddingHorizontal: _spacing, gap: _spacing,
         // paddingVertical: (height - _itemHight) ,
       }}
-      renderItem={({ item, index }) => <AnimatedCard item={item} index={index} scrollY={scrollY} />}
+      renderItem={({ item, index }) => 
+          <AnimatedCard item={item} index={index} scrollY={scrollY} />
+      }
       snapToInterval={_itemHight + _spacing}
       decelerationRate={'fast'}
       onScroll={onScrollY}
       scrollEventThrottle={16}
-
       snapToAlignment="start"
     />
 

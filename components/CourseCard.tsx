@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
    courseContainer: {
     zIndex: 10,
   },
+  
   Item: {
     justifyContent: "center",
     flex: 1,

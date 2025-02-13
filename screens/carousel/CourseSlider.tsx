@@ -7,9 +7,9 @@ import {
     StyleSheet,
     Text,
     View,
-    FlatList,
+  
     TouchableOpacity,
-    Button,
+ 
     Pressable,
     Animated,
   } from "react-native";
@@ -21,11 +21,11 @@ import {
   const paddingTop = Platform.OS === "ios" ? 20 : StatusBar.currentHeight;
 
 
- const SPACING = 10;
-const ITEM_SIZE = Platform.OS === 'ios' ? width * 0.72 : width * 0.74;
-const EMPTY_ITEM_SIZE = (width - ITEM_SIZE) / 2;
+  const SPACING = 10;
+  const ITEM_SIZE = Platform.OS === 'ios' ? width * 0.72 : width * 0.74;
+  const EMPTY_ITEM_SIZE = (width - ITEM_SIZE) / 2;
   
-  const CourseSlider = () => {
+    const CourseSlider = () => {
     const [data, setData] = useState([1, 1, 1, 1]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const scrollX = React.useRef(new Animated.Value(0)).current;
